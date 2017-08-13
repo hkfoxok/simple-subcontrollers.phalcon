@@ -24,6 +24,15 @@ class Error implements ServiceProviderInterface
                 }
             });
         }
+
+        // set_exception_handler([$this, "exceptionHandler"]);
+    }
+
+    public function exceptionHandler($exception)
+    {
+        $error = "<b>Exception Handler:</b> " . $exception->getMessage();
+        echo $error;
+        logger($error, 'error', 'error');
     }
 
 }
